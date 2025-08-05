@@ -1,0 +1,32 @@
+{
+  "name": "strelchenok_diploma",
+  "version": "1.0.0",
+  "description": "\"# strelchenok_diploma\"",
+  "homepage": "https://github.com/Nadezhda0490/strelchenok_diploma#readme",
+  "bugs": {
+    "url": "https://github.com/Nadezhda0490/strelchenok_diploma/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nadezhda0490/strelchenok_diploma.git"
+  },
+  "license": "ISC",
+  "author": "Nadezhda",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test:mocha": "mocha src/unit-tests",
+    "test:jest": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/superagent": "^8.1.9",
+    "dotenv": "^17.2.1",
+    "jest": "^30.0.5",
+    "mocha": "^11.7.1",
+    "superagent": "^10.2.3",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
