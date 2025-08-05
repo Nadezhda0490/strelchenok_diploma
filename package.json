@@ -16,10 +16,13 @@
   "main": "index.js",
   "scripts": {
     "test:mocha": "mocha src/unit-tests",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "test:playwright": "npx playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.2",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.0",
     "@types/superagent": "^8.1.9",
     "dotenv": "^17.2.1",
     "jest": "^30.0.5",
