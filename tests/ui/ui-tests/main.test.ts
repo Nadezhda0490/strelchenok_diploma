@@ -1,20 +1,22 @@
 import { test, expect, Browser } from "@playwright/test";
-import { BrowserSingleton } from "../core/BrowserSingleton";
 import { PageFactory } from "../factories/PageFactory";
+import { MainPage } from "../pages/MainPage";
+
+let browser: Browser;
+let mainPage: MainPage;
+
+test.beforeEach(async () => {
+  const result = await PageFactory.getMainPage();
+  browser = result.browser;
+  mainPage = result.mainPage;
+});
+
+test.afterEach(async () => {
+  await browser.close();
+});
 
 test.describe("Tests for Main page", () => {
-  let browser: Browser;
-
-  test.beforeAll(async () => {
-    browser = await BrowserSingleton.getInstance();
-  });
-
-  test.afterAll(async () => {
-    await BrowserSingleton.close();
-  });
-
   test("should return to the Main page when clicking the logo", async () => {
-    const mainPage = await PageFactory.getMainPage(browser);
     await mainPage.navigate();
     await mainPage.clickCatalog();
     await mainPage.returnToMainViaLogo();
@@ -23,7 +25,6 @@ test.describe("Tests for Main page", () => {
   });
 
   test("should search by name", async () => {
-    const mainPage = await PageFactory.getMainPage(browser);
     await mainPage.navigate();
     await mainPage.search("Утюги");
 
@@ -34,7 +35,6 @@ test.describe("Tests for Main page", () => {
   });
 
   test("should open catalog", async () => {
-    const mainPage = await PageFactory.getMainPage(browser);
     await mainPage.navigate();
     await mainPage.clickCatalog();
 
@@ -43,7 +43,6 @@ test.describe("Tests for Main page", () => {
   });
 
   test("should open auto market from header menu", async () => {
-    const mainPage = await PageFactory.getMainPage(browser);
     await mainPage.navigate();
     await mainPage.clickAutoMarket();
 

@@ -1,21 +1,22 @@
 import { test, expect, Browser } from "@playwright/test";
-import { BrowserSingleton } from "../core/BrowserSingleton";
 import { PageFactory } from "../factories/PageFactory";
 import { CatalogPage } from "../pages/CatalogPage";
 
+let browser: Browser;
+let catalogPage: CatalogPage;
+
+test.beforeEach(async () => {
+  const result = await PageFactory.getCatalogPage();
+  browser = result.browser;
+  catalogPage = result.catalogPage;
+});
+
+test.afterEach(async () => {
+  await browser.close();
+});
+
 test.describe("Tests for Catalog page", () => {
-  let browser: Browser;
-
-  test.beforeAll(async () => {
-    browser = await BrowserSingleton.getInstance();
-  });
-
-  test.afterAll(async () => {
-    await BrowserSingleton.close();
-  });
-
   test("should display the selected category title", async () => {
-    const catalogPage = await PageFactory.getCatalogPage(browser);
     await catalogPage.navigate();
     await catalogPage.selectCategory("Красота и спорт");
 
@@ -26,7 +27,6 @@ test.describe("Tests for Catalog page", () => {
   });
 
   test("should open the selected category section", async () => {
-    const catalogPage = await PageFactory.getCatalogPage(browser);
     await catalogPage.navigate();
     await catalogPage.selectCategory("Красота и спорт");
     await catalogPage.selectCategorySection("Здоровье");
@@ -39,7 +39,6 @@ test.describe("Tests for Catalog page", () => {
   });
 
   test("should open product detail page when clicking on item name", async () => {
-    const catalogPage = await PageFactory.getCatalogPage(browser);
     await catalogPage.navigate();
     await catalogPage.selectCategory("Красота и спорт");
     await catalogPage.selectPopularSection("Фены");
@@ -60,7 +59,6 @@ test.describe("Tests for Catalog page", () => {
   });
 
   test("should display product image when clicking on item name", async () => {
-    const catalogPage = await PageFactory.getCatalogPage(browser);
     await catalogPage.navigate();
     await catalogPage.selectCategory("Красота и спорт");
     await catalogPage.selectPopularSection("Фены");
@@ -74,7 +72,6 @@ test.describe("Tests for Catalog page", () => {
   });
 
   test("should display product price on the product detail page", async () => {
-    const catalogPage = await PageFactory.getCatalogPage(browser);
     await catalogPage.navigate();
     await catalogPage.selectCategory("Красота и спорт");
     await catalogPage.selectPopularSection("Фены");

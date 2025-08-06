@@ -1,17 +1,27 @@
-import { Browser } from "@playwright/test";
+import { chromium, Browser } from "@playwright/test";
 import { MainPage } from "../pages/MainPage";
 import { CatalogPage } from "../pages/CatalogPage";
 
 export class PageFactory {
-  static async getMainPage(browser: Browser): Promise<MainPage> {
+  static async getMainPage(): Promise<{
+    browser: Browser;
+    mainPage: MainPage;
+  }> {
+    const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
     const page = await context.newPage();
-    return new MainPage(page);
+    const mainPage = new MainPage(page);
+    return { browser, mainPage };
   }
 
-  static async getCatalogPage(browser: Browser): Promise<CatalogPage> {
+  static async getCatalogPage(): Promise<{
+    browser: Browser;
+    catalogPage: CatalogPage;
+  }> {
+    const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
     const page = await context.newPage();
-    return new CatalogPage(page);
+    const catalogPage = new CatalogPage(page);
+    return { browser, catalogPage };
   }
 }
