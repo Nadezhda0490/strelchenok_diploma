@@ -5,8 +5,9 @@
 ![Mocha](https://img.shields.io/badge/Test%20Runner-Mocha-lightgrey)
 ![Jest](https://img.shields.io/badge/Test%20Runner-Jest-red)
 ![Playwright](https://img.shields.io/badge/Framework-Playwright-green)  
-![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)  
 ![Allure](https://img.shields.io/badge/Report-Allure-blue)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)
 
 Дипломный проект включает автоматизацию Unit, API и UI тестирования с использованием современных инструментов: Mocha, Jest, Playwright и Allure
 
@@ -62,12 +63,11 @@
 - ✔️ Переход в каталог
 - ✔️ Переход по категориям и разделам
 - ✔️ Открытие страницы товара
-- ✔️ Отображение цены, изображения
+- ✔️ Отображение цены и фото товара
 - ✔️ Переход по логотипу
 - Используются:
   - Page Object
   - Page Factory
-  - Singleton
 - Использованы разные типы **селекторов**: CSS, текстовые, атрибутные
 - Добавлена интеграция с **Allure Reporter**
 

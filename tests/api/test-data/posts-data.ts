@@ -1,4 +1,4 @@
-export const post = {
+export const postRequestBody = {
   userId: 1,
   id: 1,
   title:
@@ -6,15 +6,15 @@ export const post = {
   body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
 };
 
-export const notExistingPost = 11111;
+export const nonExistingPostId = 11111;
 
-export const newPost = {
+export const newPostRequestBody = {
   userId: 12,
   title: "new post creation",
   body: "Example of a new post added via a test request",
 };
 
-export const postFrom0User = {
+export const postRequestBodyFrom0User = {
   userId: 0,
   title: "new post from zero user id",
   body: "post body from zero user id",
@@ -25,59 +25,59 @@ export const postWithoutBody = {
   title: "Post without body",
 };
 
-export const updatedPost = {
-  userId: post.userId,
-  id: post.id,
+export const updatedPostRequestBody = {
+  userId: postRequestBody.userId,
+  id: postRequestBody.id,
   title: "updated title",
   body: "updated body",
 };
 
-export const partiallyUpdatedPost = {
-  userId: post.userId,
-  id: post.id,
+export const postRequestBodyPartiallyUpdated = {
+  userId: postRequestBody.userId,
+  id: postRequestBody.id,
   title: "partially updated title",
-  body: post.body,
+  body: postRequestBody.body,
 };
 
-export const postWithAdditionalData = {
-  userId: post.userId,
-  id: post.id,
-  title: post.title,
-  body: post.body,
+export const postRequestBodyWithExtraField = {
+  userId: postRequestBody.userId,
+  id: postRequestBody.id,
+  title: postRequestBody.title,
+  body: postRequestBody.body,
   userEmail: "test@example.com",
 };
 
-export const updatedByOtherUserPost = {
+export const postUpdatedByAnotherUser = {
   userId: 444,
-  id: post.id,
-  title: post.title,
-  body: post.body,
+  id: postRequestBody.id,
+  title: postRequestBody.title,
+  body: postRequestBody.body,
 };
 
-export const emptyContentPost = {
-  userId: post.userId,
-  id: post.id,
+export const postWithEmptyContent = {
+  userId: postRequestBody.userId,
+  id: postRequestBody.id,
   title: "",
   body: "",
 };
 
-export const patchTitle = {
+export const patchOnlyTitle = {
   title: "patched title",
 };
-export const patchBody = {
+export const patchOnlyBody = {
   body: "patched body",
 };
 
-export const patchUserId = {
+export const patchOnlyUserId = {
   userId: 567,
 };
 
-export const patchFull = {
+export const patchAllFields = {
   title: "patched title",
   body: "patched body",
 };
 
-export const patchWithEmptyTitle = {
+export const patchEmptyTitle = {
   title: "",
 };
 
